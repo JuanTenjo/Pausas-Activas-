@@ -29,14 +29,44 @@
   .radio{
     font-weight: lighter;
   }
+  .barradenavegacion{
+   background-color:#2E64FE;
+   opacity:0.9;
+   filter:alpha(opacity=60); /* IE < 9.0 */
+  }
+  .barradenavegacion ul li a{
+    color: #fff;
+  }
+  .barradenavegacion ul li a:hover{
+    background-color: #5882FA; 
+  }
+  *{
+    list-style: none;
+  }
 </style>
 <body>
+    <nav class="navbar sticky-top navbar-expand-lg barradenavegacion container-fluid">
+      <a class="navbar-brand" href="<?php echo base_url()?>index.php/inicio"><img src="<?php echo base_url()?>imagenes/logovisual.png" width="90" class="img-fluid" height="35" alt="" loading="lazy"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon">Lista</span>
+      </button>
+      <div class="collapse navbar-collapse " id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto ">
+        <li class="nav-item active">
+          <a class="nav-link" href="<?php echo base_url() ?>index.php/inicio/view_guia">Guía Prevención<span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#videos">Videos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link " href="<?php echo base_url() ?>index.php/inicie_sesion/cargarcontactos" tabindex="-1" aria-disabled="true">Contactanos</a>
+        </li>
+      </ul>
+    </div>
+    </nav>
   <header>
-    <div class="container">
-    <div class="imagen" style="justify-content: center">
-    <center><img src="<?php echo base_url()?>imagenes/portada2.jpg" style="height:130px; width:40%" value="mesa_#" class="img-fluid"><center>
-    </div><br>
-    <center><h1 style="font-family:cursive">Bienvenido a pausas activas</h1><center>
+    <div class="container"><br>
+    <center><h1 style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif">Bienvenido a Visual Center</h1><center>
     </div><br>
   </header> 
   <div class="main">
@@ -54,7 +84,7 @@
         <label for="exampleInputPassword1">Contraseña</label>
         <input require type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña" name="contrasena">
       </div>
-        <button type="submit" class="btn btn-success">Iniciar Sesion</button>
+        <button type="submit" class="btn boton btn-success btn-block shadow-none p-3 mb-5rounded">Iniciar Sesion</button>
       </form>
       </div><br>
       </article>
@@ -83,7 +113,7 @@
               </small>
             </div>
             <div class="form-group">
-             <button type="submit" class="btn boton btn-lg btn-block shadow-none p-3 mb-5rounded">Registrate</button>
+             <button type="submit" class="btn boton btn-success btn-block shadow-none p-3 mb-5rounded">Registrate</button>
             </div>
           </form><br>
       </article>

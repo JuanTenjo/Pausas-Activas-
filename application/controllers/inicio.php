@@ -8,7 +8,11 @@ class Inicio extends CI_Controller {
 	  }
 	public function index()
 	{
+		$this->load->view('view_home');
+	}
+	public function view_guia()
+	{
 		$data['contenido'] = $this->model_contenido->mostrar_contenido();
-		$this->load->view('view_home',$data);
+		$this->load->view('view_guia',$data);
 	}
 }
