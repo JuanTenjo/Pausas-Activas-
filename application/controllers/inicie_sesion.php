@@ -12,17 +12,14 @@ class Inicie_Sesion extends CI_Controller {
 	{
 		$this->load->view('view_login');
 	}
-	public function cargarvideo()
-	{
-		$this->load->view('view_videos');
-	}
-	public function cargarprograma()
-	{
-		$this->load->view('view_programa');
-	}
 	public function cargarcontactos()
 	{
 		$this->load->view('view_contacto');
+	}
+	public function eliminarsesion()
+	{
+		$this->session->sess_destroy();
+		$this->load->view('view_login');
 	}
 	
 	public function carga_admin()
@@ -56,6 +53,7 @@ class Inicie_Sesion extends CI_Controller {
 			$session = array(
 				'ID' => $result->id_usuarios,
 				'NOMBRE' => $result->nombre,
+				'APELLIDOS' => $result->apellidos,
 				'CONTRASENA' => $result->contraseña,
 				'CORREO' => $result->correo,
 				'ROL' => $result->nombrerol,

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="<?php echo base_url(); ?>boostrap/css/bootstrap-grid.min.css">
   <script type="text/javascript" src="<?php echo base_url(); ?>boostrap/js/bootstrap.bundle.min.js"></script>
   <script type="text/javascript" src="<?php echo base_url(); ?>boostrap/js/bootstrap.min.js"></script>
-  <title>Contacto</title>
+  <title>Editar Perfil</title>
 </head>
 <style>
 
@@ -38,6 +38,14 @@
 
 </style>
 <body>
+<?php
+    $ID = $this->session->userdata('ID');
+    $NOMBRE = $this->session->userdata('NOMBRE');
+    $APELLIDOS = $this->session->userdata('APELLIDOS');
+    $CONTRASENA = $this->session->userdata('CONTRASENA');
+    $CORREO = $this->session->userdata('CORREO');
+    $ROL = $this->session->userdata('ROL');
+?>
 <nav class="navbar sticky-top navbar-expand-lg barradenavegacion container-fluid">
       <a class="navbar-brand" href="<?php echo base_url()?>index.php/inicio"><img src="<?php echo base_url()?>imagenes/logovisual.png" width="90" class="img-fluid" height="35" alt="" loading="lazy"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,42 +60,50 @@
           <a class="nav-link " href="<?php echo base_url() ?>index.php/inicie_sesion/cargarcontactos" tabindex="-1" aria-disabled="true">Contactanos</a>
         </li>
       </ul>
-      <?php
-        if(empty($nombre = $this->session->userdata('NOMBRE'))){?>
-        <li class="nav-item" >
-          <a class="nav-link btn btn-success my-2 my-sm-0" style="color:white;" role="button" href="<?php echo base_url() ?>index.php/inicie_sesion">Iniciar Sesion</a>
-        </li>
-        <?php }else{?>
-          <a class="navbar-brand" href="<?php echo base_url()?>index.php/inicio/editarperfil"><img src="<?php echo base_url()?>imagenes/conf1.png" width="30" class="img-fluid" alt="" loading="lazy"></a>
-          <p style="color: #fff;margin-top:10px;"><?php echo $nombre ?></p>
-        <?php } ?>
     </div>
     </nav>
   <div class="main">
     <div class="container">
       <div class="row" style="margin-top: 3%;">
-      <article class="col-xs-6  col-sm-6 col-md-6">
-            <div class="contactos">
-            <H4>Redes Sociales</H4><br>
-            <img src="<?php echo base_url()?>imagenes/whatsapp.png" alt="">
-            <a href="http://wa.me/573203971623?text=Hola">Whatsapp Directo</a><hr><br>
-            <img src="<?php echo base_url()?>imagenes/facebook.png" alt="">
-            <a href="https://www.facebook.com/Visual-Center-Colombia-920772937989117/">Facebook</a><hr><br>
-            <img src="<?php echo base_url()?>imagenes/instagram.png" alt="">
-            <a href="https://www.instagram.com/visualcentercolombia/">Instagram</a><hr><br>
-            <img src="<?php echo base_url()?>imagenes/email.png" alt="">
-            <a href="mailto:distrilent@yahoo.es">Clickea para enviar email a un destinatario</a><hr><br>
-
+      <article class="col-xs-6 col-sm-6 col-md-6">
+      <h3>Edita tu perfil</h3><br>
+      <form action="<?php echo base_url() ?>index.php/inicio/editarUser" method="POST" data-ajax="false">
+            <div class="form-group"> 
+              <label >Correo electrónico</label>
+              <input type="email" minlength="11" maxlength="50" value="<?php echo $CORREO ?>" name="correo" required class="form-control" >
             </div>
+            <div class="form-group">
+              <label >Nombre</label>
+              <input type="Text" minlength="5" value="<?php echo $NOMBRE ?>" maxlength="50" name="nombre" required class="form-control" >
+            </div>
+            <div class="form-group">
+              <label >Apellidos</label>
+              <input type="Text" minlength="5" value="<?php echo $APELLIDOS ?>" maxlength="50" name="apellidos" required class="form-control" >
+            </div>
+            <div class="form-group">
+              <label >Contraseña</label>
+              <input type="password" value="<?php echo $CONTRASENA ?>" minlength="8" maxlength="20" name="contrasena" required  id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" placeholder="Ejemplo: juan423534 ">
+              <input type="text" name="id" value="<?php echo $ID ?>"  class="form-control" style="display: none;">
+              <small id="passwordHelpBlock" class="form-text text-muted">
+              Su contraseña debe tener entre 8 y 20 caracteres, contener letras y números, y no debe contener espacios, caracteres especiales o emoji.
+              </small>
+            </div>
+            <div class="form-group">
+             <button type="submit" class="btn boton btn-success btn-block shadow-none p-3 mb-5rounded">Guardar Cambios</button>
+            </div>
+          </form><br>
       </article>
       <article class="col-xs-6 col-sm-6 col-md-6">
-            <div class="contactos">
-            <H4>Encuentranos</H4><br>
-            <h6>Direccion: cra 5 # 2-59, barrio La trinidad</h6><hr> 
-            <h6>Telefono: 8714907 - 8721544</h6><hr>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2820.558805601712!2d-75.28565945650307!3d2.912420751067746!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3b7385b792270f%3A0x894ea4f075c37910!2sCl.%2012%20Sur%20%235-11%2C%20Neiva%2C%20Huila!5e0!3m2!1ses!2sco!4v1590521656478!5m2!1ses!2sco" width="400" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe> 
-            </div>
+        <h3>Gracias por preferirnos</h3><br>
+      <img src="<?php echo base_url()?>imagenes/img1.jpg" width="100%" class="img-fluid" height="35" alt="" loading="lazy">
       </article>
+    </div>
+    <div class="row">
+    <article class="col-xs-6 col-sm-6 col-md-6">
+    <form action="<?php echo base_url() ?>index.php/inicie_sesion/eliminarsesion" method="POST" data-ajax="false">
+        <button type="submit" class="btn boton btn-danger btn-block shadow-none p-3 mb-5rounded">Cerrar Sesion</button>    
+    </form>         
+    </article>
     </div>
   </div>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

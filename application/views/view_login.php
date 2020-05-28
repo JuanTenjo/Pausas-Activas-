@@ -20,7 +20,7 @@
     background-color: #000;
   }
   .boton{
-    background-color: #576aff;
+    background-color: #0040FF;
     color:blanchedalmond;
   }
   label{

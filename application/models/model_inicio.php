@@ -12,11 +12,16 @@ class  Model_Inicio extends CI_Model {
     return $query->row();
   }
   public function con_usuario($correo = null, $contrasena=null){
-    $sql = "SELECT u.id_usuarios, u.nombre,u.contraseña, r.nombrerol, u.correo FROM usuarios u, roles r
+    $sql = "SELECT u.id_usuarios, u.nombre, u.apellidos, u.contraseña, r.nombrerol, u.correo FROM usuarios u, roles r
     WHERE u.id_rol = r.idroles
     AND u.correo='$correo' AND u.contraseña='$contrasena';";
     $query=$this->db->query($sql);
     return $query->row();
+  } 
+  public function modificar_usuario($id=null,$nombre=null,$correo=null,$contrasena=null,$apellidos=null){
+    $sql = "UPDATE usuarios SET nombre='$nombre',contraseña='$contrasena',apellidos='$apellidos',correo='$correo' WHERE id_usuarios ='$id' ;";
+    $query=$this->db->query($sql);
+    redirect("".base_url()."index.php/inicio");
   }
 
   public function eliminar_registro($id=null){

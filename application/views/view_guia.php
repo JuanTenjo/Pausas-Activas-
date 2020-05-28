@@ -71,7 +71,7 @@
           <a class="nav-link btn btn-success my-2 my-sm-0" style="color:white;" role="button" href="<?php echo base_url() ?>index.php/inicie_sesion">Iniciar Sesion</a>
         </li>
         <?php }else{?>
-          <a class="navbar-brand" href="<?php echo base_url()?>index.php/inicio"><img src="<?php echo base_url()?>imagenes/conf1.png" width="30" class="img-fluid" alt="" loading="lazy"></a>
+          <a class="navbar-brand" href="<?php echo base_url()?>index.php/inicio/editarperfil"><img src="<?php echo base_url()?>imagenes/conf1.png" width="30" class="img-fluid" alt="" loading="lazy"></a>
           <p style="color: #fff;margin-top:10px;"><?php echo $nombre ?></p>
         <?php } ?>
     </div>
